@@ -1,0 +1,36 @@
+[project]
+name = "rehydrax"
+version = "0.1.0"
+description = "Rehydrax: A utility library to rehydrate stablehlo into JAX."
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+authors = [
+    {name = "Armand Picard", email = "armandpicard71@gmail.com"}
+]
+keywords = ["jax", "stablehlo", "xla", "torch"]
+dependencies = [
+    "jax>=0.4.38",
+]
+
+[project.urls]
+homepage = "https://github.com/armandpicard/rehydrax"
+repository = "https://github.com/armandpicard/rehydrax"
+
+
+
+[project.optional-dependencies]
+torch = [
+    "torch>=2.5.0",
+    "torch-xla>=2.5.0",
+]
+
+dev = ["ruff", "pip", "pytest", "jupyter", "flax", "torch-xla[gpu]==2.5.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+include = ["rehydrax/*"]
+
